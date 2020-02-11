@@ -8,19 +8,23 @@
     </head>
 
     <body>
-        <header>
-            <h1>Add a post here!</h1>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'addPost/style.css' %}" />
+        <header style="text-align: center;">
+            <h1>Welcome to ghostPost! 👻</h1>
         </header>
+        <ul>
+            <li><a href="/">Home</a></li>
+            </ul>
+        <h2>Add a post here!</h2>
         {% load crispy_forms_tags %}
         <form action="" method="post">
 
             {% csrf_token %}
             {{ form|crispy }}
-
-            <div class="btn-group" role="group">
-                <button type="submit" class="btn btn-primary">
-                    Submit
-                </button>
+            <button>
+                Submit
+            </button>
         </form>
     </body>
 

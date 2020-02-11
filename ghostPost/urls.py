@@ -24,6 +24,7 @@ urlpatterns = [
     path('upvote/<int:id>', views.upvote, name='home'),
     path('downvote/<int:id>', views.downvote, name='home'),
     path('addpost/', views.addPost, name='addpost'),
-    path('boast/', views.boast_view, name='home'),
-    path('roast/', views.roast_view, name='home')
+    path('boast/', views.boast_view, name='boast'),
+    path('roast/', views.roast_view, name='roast'),
+    path('sort/', views.sort_by_votes, name='sort')
 ]

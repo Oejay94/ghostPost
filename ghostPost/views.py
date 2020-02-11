@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponseRedirect, reverse
-from django.utils import timezone
+
 from ghostPost.models import BoastRoast
 from ghostPost.forms import PostForm
 
@@ -10,23 +10,17 @@ def home(request):
 
 
 def upvote(request, id):
-    try:
-        post = BoastRoast.objects.get(id=id)
-    except BoastRoast.DoesNotExist():
-        return HttpResponseRedirect(reverse('home'))
+    post = BoastRoast.objects.get(id=id)
     post.total += 1
     post.save()
-    return HttpResponseRedirect(reverse('home'))
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 def downvote(request, id):
-    try:
-        post = BoastRoast.objects.get(id=id)
-    except BoastRoast.DoesNotExist():
-        return HttpResponseRedirect(reverse('home'))
+    post = BoastRoast.objects.get(id=id)
     post.total -= 1
     post.save()
-    return HttpResponseRedirect(reverse('home'))
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 def addPost(request):
@@ -57,4 +51,10 @@ def boast_view(request):
 def roast_view(request):
     html = 'home.html'
     data = BoastRoast.objects.filter(boast_or_roast=False).order_by('-time')
+    return render(request, html, {'data': data})
+
+
+def sort_by_votes(request):
+    html = "home.html"
+    data = BoastRoast.objects.all().order_by("-total")
     return render(request, html, {'data': data})
