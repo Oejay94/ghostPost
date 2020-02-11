@@ -4,10 +4,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>👻ghostPost👻</title>
     </head>
 
-    <body>
+    <body style="background-color:lightgray">
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}" />
         <header style="text-align: center;">
@@ -18,11 +18,17 @@
             <li><a href="/boast/">Boast</a></li>
             <li><a href="/roast/">Roast</a></li>
             <li><a href="/sort/">Sort</a></li>
-            <li><a href="/addpost/">Add a boast or roast of your own</a></li>
+            <li><a href="/addpost/">Add a Boast or Roast of Your Own</a></li>
         </ul>
         <table>
             {% for x in data %}
-            <h2>{{ x.title }}</h2>
+            {% if x.boast_or_roast == True %}
+            <h2>Boast 💁🏻</h2>
+            {% elif x.boast_or_roast == False %}
+            <h2>Roast 🔥</h2>
+            {% endif %}
+           <a href="/postdetails/{{x.id}}"><h3>{{ x.title }}</h3></a>
+            <br>
             <p>{{ x.content }}</p>
             <p class="total">{{x.total}}</p>
             <div class="buttons">

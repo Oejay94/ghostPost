@@ -9,5 +9,4 @@ class PostForm(forms.ModelForm):
             'title',
             'content',
             'boast_or_roast',
-            'time'
         ]

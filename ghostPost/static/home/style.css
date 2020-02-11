@@ -42,7 +42,7 @@ ul {
   }
 
   .total {
-      font-size: large;
+      font-size: larger;
       position: relative;
-      top: 40px;
+      top: 45px;
   }

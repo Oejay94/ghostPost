@@ -9,6 +9,12 @@ def home(request):
     return render(request, 'home.html', {'data': data})
 
 
+def postDetail(request, id):
+    html = 'postDetail.html'
+    data = BoastRoast.objects.get(id=id)
+    return render(request, html, {'data': data})
+
+
 def upvote(request, id):
     post = BoastRoast.objects.get(id=id)
     post.total += 1
@@ -44,13 +50,13 @@ def addPost(request):
 
 def boast_view(request):
     html = 'home.html'
-    data = BoastRoast.objects.filter(boast_or_roast=True).order_by('-time')
+    data = BoastRoast.objects.filter(boast_or_roast=1).order_by('-time')
     return render(request, html, {'data': data})
 
 
 def roast_view(request):
     html = 'home.html'
-    data = BoastRoast.objects.filter(boast_or_roast=False).order_by('-time')
+    data = BoastRoast.objects.filter(boast_or_roast=0).order_by('-time')
     return render(request, html, {'data': data})
 
 

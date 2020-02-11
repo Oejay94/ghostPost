@@ -1,3 +1,32 @@
+h2 {
+    text-align: center;
+}
+
+form{
+    text-align: center;
+}
+
+#div_id_title.control-group {
+    margin-bottom: 20px;
+}
+
+#div_id_content.control-group{
+    margin-bottom: 20px;
+}
+
+#div_id_boast_or_roast.control-group{
+    margin-bottom: 10px;
+}
+
+button { 
+  background-color: #333;
+  border: 1px solid black; 
+  color: white; 
+  padding: 5px 15px;
+  display: inline-block; 
+  text-decoration:none; 
+} 
+
 ul {
     list-style-type: none;
     margin: 0;

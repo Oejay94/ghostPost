@@ -21,6 +21,7 @@ from ghostPost import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
+    path('postdetails/<int:id>', views.postDetail, name='postdetail'),
     path('upvote/<int:id>', views.upvote, name='home'),
     path('downvote/<int:id>', views.downvote, name='home'),
     path('addpost/', views.addPost, name='addpost'),

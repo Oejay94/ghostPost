@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Post Detail👻</title>
+    </head>
+
+    <body style="background-color:lightgray">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'postDetails/style.css' %}" />
+        <header style="text-align: center;">
+            <h1>Welcome to ghostPost! 👻</h1>
+        </header>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/addpost/">Add a Boast or Roast of Your Own</a></li>
+        </ul>
+        <table>
+            {% if data.boast_or_roast == True %}
+            <h2>Boast 💁🏻</h2>
+            {% elif data.boast_or_roast == False %}
+            <h2>Roast 🔥</h2>
+            {% endif %}
+           <h3>{{ data.title }}</h3>
+            <br>
+            <p>{{ data.content }}</p>
+            <br>
+            <p>Total number of Upvotes: {{data.total}}</p>
+            <br>
+            {{data.time}}
+            <hr>
+        </table>
+    </body>
+
+</html>
