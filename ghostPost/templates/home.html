@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <header style="text-align: center;">
+            <h1>Welcome to ghostPost!</h1>
+        </header>
+        <button>
+            <a href="/boast/">
+                Boast
+            </a>
+        </button>
+        <button>
+            <a href="/roast/">
+                Roast
+            </a>
+        </button>
+        <button>
+            <a href="/">
+                Home
+            </a>
+        </button>
+        <button>
+            <a href="/addpost/">
+                Add a boast or roast of your own
+            </a>
+        </button>
+        <table>
+            {% for x in data %}
+            <h2>{{ x.title }}</h2>
+            <p>{{ x.content }}</p>
+            {{x.total}}
+            <button type="post">
+                <a href="/upvote/{{x.id}}">
+                    Upvote
+                </a>
+            </button>
+            <button type="post">
+                <a href="/downvote/{{x.id}}">
+                    Downvote
+                </a>
+            </button>
+            <br>
+            {{x.time}}
+            {% endfor %}
+        </table>
+    </body>
+
+</html>
